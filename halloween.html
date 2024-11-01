@@ -1,0 +1,318 @@
+
+<html>
+<heaed>
+
+<style>
+@import url(https://fonts.bunny.net/css?family=creepster:400|poppins:300,400,600,800);
+
+body {
+  background: rgb(19, 1, 24);
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  gap: 8rem;
+  font-family: "Poppins", sans-serif;
+  background-image: url("https://raw.githubusercontent.com/cbolson/icodethis-challenges/main/assets/halloween/web-t-left.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --color {
+  syntax: "<color>";
+  initial-value: hotpink;
+  inherits: false;
+}
+
+button {
+  --neon-clr-1: rgb(194, 65, 12);
+  --neon-clr-2: rgb(250, 204, 21);
+
+  --btn-radius: 10px;
+  --btn-border-clr: rgba(255 255 255 / 0.2);
+  --btn-bg-clr: rgba(255 255 255 / 0.75);
+
+  font-family: "Creepster", display;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+
+  border: 1px solid var(--btn-border-clr);
+  border-radius: var(--btn-radius);
+  background-color: var(--btn-bg-clr);
+  outline: none;
+
+  padding: 1rem 2rem;
+  /*backdrop-filter: blur(15px);*/
+  font-size: clamp(1.2rem, 2.5vw + 0.25rem, 4rem);
+  color: transparent;
+  text-transform: uppercase;
+  position: relative;
+  background-clip: text;
+  text-align: center;
+
+  transition: background-color 300ms ease-in-out;
+
+  background-image: url("https://raw.githubusercontent.com/cbolson/icodethis-challenges/main/assets/halloween/bats-2.gif");
+  background-size: cover;
+}
+button:focus-visible,
+button:hover,
+label:hover {
+  --bg-blur: 15px;
+  --bg-inset: -1rem;
+  --bg-opacity: 0.75;
+  --btn-bg-clr: rgba(255 255 255 / 0.85);
+}
+
+/* gradient rotation */
+label::before,
+button::before {
+  content: "";
+  position: absolute;
+  inset: var(--bg-inset, -1rem);
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent,
+    var(--color),
+    transparent
+  );
+  z-index: -1;
+  border-radius: 999vw;
+  animation: neon-rotate 3s linear infinite;
+
+  filter: blur(var(--bg-blur, 10px));
+  opacity: var(--bg-opacity, 0.25);
+  transition: inset, opacity, filter;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* active button image */
+button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  filter: blur(20px);
+  background-image: var(--bg-img);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+  border-bottom-right-radius: inherit;
+  width: 100%;
+  height: var(--bg-img-height, 200px);
+
+  transition: opacity 500ms ease-in-out, filter 500ms ease-in-out;
+}
+button.active::after {
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: 0, 300ms;
+}
+
+@keyframes neon-rotate {
+  from {
+    --angle: 0deg;
+    --color: orange;
+  }
+  50% {
+    --color: purple;
+  }
+  to {
+    --angle: 360deg;
+    --color: orange;
+  }
+}
+
+label.switch {
+  --icon-on: 0;
+  --icon-off: 1;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
+  color: white;
+  display: grid;
+  grid-template-areas: "stack";
+  place-content: center;
+  /*background: rgba(194, 65, 12, 0.25);*/
+  width: 30px;
+  height: 30px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 300ms ease-in-out;
+  outline: 1px solid rgba(255 255 255 / 0.25);
+}
+label.switch:hover {
+  /*background-color: rgba(194, 65, 12, 0.5)*/
+}
+label.switch > svg {
+  width: 1.5rem;
+  grid-area: stack;
+  transition: scale 300ms ease-in-out;
+}
+label.switch > svg:first-of-type {
+  scale: var(--icon-on);
+}
+label.switch > svg:last-of-type {
+  scale: var(--icon-off);
+}
+label.switch:has(:checked) {
+  --icon-on: 1;
+  --icon-off: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
+<body>
+<label for="play-audio" class="switch" aria-label="Toggle Audio">
+  <input type="checkbox" id="play-audio" class="sr-only" checked>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M15 8a5 5 0 0 1 0 8" />
+    <path d="M17.7 5a9 9 0 0 1 0 14" />
+    <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M15 8a5 5 0 0 1 1.912 4.934m-1.377 2.602a5 5 0 0 1 -.535 .464" />
+    <path d="M17.7 5a9 9 0 0 1 2.362 11.086m-1.676 2.299a9 9 0 0 1 -.686 .615" />
+    <path d="M9.069 5.054l.431 -.554a.8 .8 0 0 1 1.5 .5v2m0 4v8a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l1.294 -1.664" />
+    <path d="M3 3l18 18" />
+  </svg>
+</label>
+
+<button type="button" id="btn-halloween">Trick or Treat?</button>
+<script>
+const images = [
+  {
+    type: 1,
+    img:
+      "https://raw.githubusercontent.com/cbolson/icodethis-challenges/main/assets/halloween/width-ai-3.webp",
+    mp3:
+      "https://raw.githubusercontent.com/cbolson/icodethis-challenges/main/assets/halloween/witch.mp3",
+    height: "300px"
+  },
+  {
+    type: 1,
+    img:
+      "https://raw.githubusercontent.com/cbolson/icodethis-challenges/main/assets/halloween/pumpkin-scary.png",
+    mp3:
+      "https://raw.githubusercontent.com/cbolson/icodethis-challenges/main/assets/halloween/this-is-halloween.mp3",
+    height: "200px"
+  },
+  {
+    type: 1,
+    img:
+      "https://raw.githubusercontent.com/cbolson/icodethis-challenges/main/assets/halloween/ghost-scary-2.png",
+    mp3:
+      "https://raw.githubusercontent.com/cbolson/icodethis-challenges/main/assets/halloween/ghost.mp3",
+    height: "200px"
+  }
+];
+
+let nextImage = null;
+let lastImage = null; // Track the last displayed image
+let audio = null;
+
+// preload an image
+function preloadImage(url) {
+  const img = new Image();
+  img.src = url;
+}
+
+// get a random image object BUT ensure it’s different from the last one
+function getRandomImage() {
+  let newImage;
+  do {
+    newImage = images[Math.floor(Math.random() * images.length)];
+  } while (newImage === lastImage);
+  lastImage = newImage;
+  return newImage;
+}
+
+// preload the first random image on page load
+window.addEventListener("DOMContentLoaded", () => {
+  nextImage = getRandomImage();
+  preloadImage(nextImage.img);
+
+  // set up the audio checkbox to control mute/unmute
+  const playAudioCheckbox = document.querySelector("#play-audio");
+  playAudioCheckbox.addEventListener("change", () => {
+    if (audio) {
+      audio.muted = !playAudioCheckbox.checked;
+    }
+  });
+});
+
+const btn = document.querySelector("#btn-halloween");
+btn.addEventListener("click", () => {
+  // Disable the button to prevent multiple clicks
+  btn.disabled = true;
+
+  // stop and reset audio
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  btn.style.setProperty("--bg-img", `url(${nextImage.img})`);
+  btn.style.setProperty("--bg-img-height", nextImage.height);
+
+  if (nextImage.mp3) {
+    audio = new Audio(nextImage.mp3);
+    audio.volume = 1;
+
+    // set mute based on checkbox state
+    const playAudioCheckbox = document.querySelector("#play-audio");
+    audio.muted = !playAudioCheckbox.checked;
+
+    audio.play();
+
+    // fade-out audio
+    setTimeout(() => {
+      const fadeInterval = setInterval(() => {
+        if (audio.volume > 0.05) {
+          audio.volume -= 0.05; // Reduce volume gradually
+        } else {
+          audio.volume = 0;
+          audio.pause();
+          clearInterval(fadeInterval);
+        }
+      }, 100); // adjust volume every 100ms
+    }, 3000);
+  }
+
+  btn.classList.add("active");
+
+  // remove the "active"
+  setTimeout(() => {
+    btn.classList.remove("active");
+
+    // Preload the next random image and ensure it's different
+    nextImage = getRandomImage();
+    preloadImage(nextImage.img);
+
+    btn.disabled = false;
+  }, 3000);
+});
+</script>
+</body>
+</html>
