@@ -1,0 +1,503 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <style>
+            *:not(head, script, svg, svg *),
+*:not(head, script, svg, svg *)::before,
+*:not(head, script, svg, svg *)::after {
+  all: unset;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  overflow: hidden;
+}
+
+body {
+  postion: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background: black;
+  color: white;
+}
+
+picture {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+picture::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 25%;
+  background-color: transparent;
+  content: "";
+  animation: a 20s ease infinite;
+}
+
+@keyframes a {
+  0% {
+    width: 25%;
+    height: 25%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(2vmin) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(0deg);
+  }
+  12.49% {
+    left: 0;
+  }
+  12.5% {
+    width: 100%;
+    left: unset;
+    backdrop-filter: blur(0vmin) hue-rotate(150deg);
+    -webkit-backdrop-filter: blur(0vmin) hue-rotate(150deg);
+  }
+  25% {
+    width: 25%;
+    height: 25%;
+    backdrop-filter: blur(2vmin) hue-rotate(300deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(300deg);
+  }
+  37.49% {
+    top: 0;
+    bottom: 0;
+  }
+  37.5% {
+    top: unset;
+    height: 100%;
+    backdrop-filter: blur(0vmin) hue-rotate(150deg);
+    -webkit-backdrop-filter: blur(0vmin) hue-rotate(150deg);
+  }
+  50% {
+    width: 25%;
+    height: 25%;
+    backdrop-filter: blur(2vmin) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(0deg);
+  }
+  62.49% {
+    left: unset;
+    right: 0;
+  }
+  62.5% {
+    right: unset;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0vmin) hue-rotate(150deg);
+    -webkit-backdrop-filter: blur(0vmin) hue-rotate(150deg);
+  }
+  74.9% {
+    top: unset;
+    bottom: 0;
+  }
+  75% {
+    width: 25%;
+    height: 25%;
+    backdrop-filter: blur(2vmin) hue-rotate(300deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(300deg);
+  }
+  87.49% {
+    top: unset;
+    bottom: 0;
+  }
+  87.5% {
+    height: 100%;
+    top: 0;
+    backdrop-filter: blur(0vmin) hue-rotate(150deg);
+    -webkit-backdrop-filter: blur(0vmin) hue-rotate(150deg);
+  }
+  100% {
+    width: 25%;
+    height: 25%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(2vmin) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(0deg);
+  }
+}
+
+picture::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 25%;
+  background-color: transparent;
+  content: "";
+  animation: b 10s ease infinite;
+}
+
+@keyframes b {
+  0% {
+    width: 25%;
+    height: 25%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(2vmin) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(0deg);
+  }
+  12.49% {
+    top: 0;
+  }
+  12.5% {
+    height: 100%;
+    top: unset;
+    backdrop-filter: blur(0vmin) hue-rotate(150deg);
+    -webkit-backdrop-filter: blur(0vmin) hue-rotate(150deg);
+  }
+  25% {
+    width: 25%;
+    height: 25%;
+    backdrop-filter: blur(2vmin) hue-rotate(300deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(300deg);
+  }
+  37.49% {
+    left: 0;
+    right: 0;
+  }
+  37.5% {
+    left: unset;
+    width: 100%;
+    backdrop-filter: blur(0vmin) hue-rotate(150deg);
+    -webkit-backdrop-filter: blur(0vmin) hue-rotate(150deg);
+  }
+  50% {
+    width: 25%;
+    height: 25%;
+    backdrop-filter: blur(2vmin) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(0deg);
+  }
+  62.49% {
+    top: unset;
+    bottom: 0;
+  }
+  62.5% {
+    top: 0;
+    height: 100%;
+    backdrop-filter: blur(0vmin) hue-rotate(150deg);
+    -webkit-backdrop-filter: blur(0vmin) hue-rotate(150deg);
+  }
+  74.9% {
+    bottom: unset;
+    right: 0;
+  }
+  75% {
+    width: 25%;
+    height: 25%;
+    left: unset;
+    backdrop-filter: blur(2vmin) hue-rotate(300deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(300deg);
+  }
+  87.49% {
+    left: unset;
+    right: 0;
+  }
+  87.5% {
+    width: 100%;
+    left: 0;
+    backdrop-filter: blur(0vmin) hue-rotate(150deg);
+    -webkit-backdrop-filter: blur(0vmin) hue-rotate(150deg);
+  }
+  100% {
+    width: 25%;
+    height: 25%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(2vmin) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(0deg);
+  }
+}
+
+figure {
+  position: absolute;
+  width: 100%;
+  max-width: 700px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  animation: c 10s linear infinite;
+}
+
+@keyframes c {
+  from {
+    backdrop-filter: blur(2vmin) hue-rotate(0deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(0deg);
+  }
+  to {
+    backdrop-filter: blur(2vmin) hue-rotate(360deg);
+    -webkit-backdrop-filter: blur(2vmin) hue-rotate(360deg);
+  }
+}
+
+figure::after {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 60px;
+  height: 60px;
+  background-image: linear-gradient(
+    320deg,
+    #ff20fb,
+    #f424ff,
+    #d42dff,
+    #b139ff,
+    #9742ff,
+    #8d46ff
+  );
+  content: "";
+  z-index: -1;
+  animation: d 5s linear infinite;
+}
+
+@keyframes d {
+  from {
+    filter: hue-rotate(0deg) brightness(1.5);
+    transform: rotateZ(0deg);
+    border-radius: 0;
+  }
+  50% {
+    border-radius: 49%;
+    filter: hue-rotate(180deg) brightness(1.5);
+  }
+  to {
+    filter: hue-rotate(360deg) brightness(1.5);
+    transform: rotateZ(360deg);
+    border-radius: 0;
+  }
+}
+
+h1 {
+  font-family: "Major Mono Display", monospace;
+  font-size: 40px;
+  line-height: 1.5cap;
+  text-wrap: balance;
+  color: white;
+  margin-bottom: 20px;
+}
+
+figcaption {
+  font-family: "Figtree", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 2cap;
+  text-wrap: pretty;
+  padding-left: 30px;
+  border-left: 1px solid white;
+  color: #bbb;
+}
+
+@media (max-width: 780px) {
+  figure {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
+  figcaption {
+    font-size: 16px;
+  }
+}
+
+ /* Language selector styling */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            z-index: 10;
+        }
+
+        /* Position the button in the bottom right */
+        .next-button-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            align-items: center; /* Center align for character and button */
+        }
+
+        /* Style for the Halloween button */
+        .next-button {
+            padding: 15px 25px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #2c3e50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Creepster', cursive; /* Halloween-themed font */
+            transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(242, 196, 94, 0.5);
+            position: relative;
+            z-index: 1; /* Keep button above SVG */
+        }
+
+          /* Shaking hover effect */
+        .next-button:hover {
+            animation: shake 0.3s ease-in-out infinite;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            box-shadow: 0 0 20px #e74c3c, 0 0 30px #c0392b;
+            color: #fff;
+        }
+
+        /* Shake keyframes for hover effect */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        /* Loader emoji styling */
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px; /* Initial size of the emoji */
+            transition: transform 0.5s ease; /* Smooth scaling */
+            display: none; /* Hidden by default */
+            z-index: 100; /* Above everything */
+        }
+
+        /* Inflated loader effect */
+        .inflate {
+            display: block; /* Show when inflating */
+            transform: translate(-50%, -50%) scale(3); /* Scale up on inflate */
+            animation: bounce 1s infinite; /* Bounce animation */
+        }
+
+        /* Background animation styling */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent; /* Initial transparent background */
+            transition: background-color 1s ease; /* Smooth background transition */
+            z-index: -1; /* Behind everything */
+        }
+
+        /* Keyframes for bounce animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(3);
+            }
+            50% {
+                transform: translate(-50%, -45%) scale(3); /* Slightly move up */
+            }
+        }
+
+        /* Load a Halloween font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+            </style>
+    </head>
+    <body>
+        <picture>
+  <img src="https://i.imgur.com/gIWOMuW.jpeg" width="3840" height="2160" alt="background">
+</picture>
+<figure>
+  <h1>
+    Hello, I’m Harshpreet Singh!
+    </h2>
+    <figcaption>
+     I’m a 25-year-old seafarer working at Synergy Maritime Pvt Ltd in Singapore. Originally from Anandpur Sahib in Punjab, I come from a Sikh background and hold a B.Tech in Computer Science Engineering. Combining my technical education with a passion for the maritime world, I navigate the seas while constantly expanding my skills in both fields. I'm enthusiastic about technology, travel, and exploring cultures beyond the shores.
+    </figcaption>
+</figure>
+<!-- Next button positioned at the bottom right -->
+    <div class="next-button-container">
+        <a href="#" id="nextButton" class="next-button">Next Page</a>
+    </div>
+
+    <!-- Loader emoji -->
+    <div id="loader" class="loader">👻</div>
+    
+    <!-- Background effect -->
+    <div id="background" class="background"></div>
+
+    <script>
+        document.getElementById('nextButton').onclick = function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            const loader = document.getElementById('loader');
+            const background = document.getElementById('background');
+            const nextPageUrl = "http://harshpreetsingh.great-site.net/haloween.html"; // Next page URL
+
+            // Show the loader and apply the inflate effect
+            loader.classList.add('inflate');
+            background.style.backgroundColor = 'red'; // Change background to red
+            background.style.zIndex = '5'; // Set z-index to 5 when button is clicked
+
+            // Load the next page in the background
+            const img = new Image();
+            img.src = nextPageUrl; // Preload the next page
+
+            // Simulate loading (you can adjust the duration)
+            setTimeout(function() {
+                // Reverse the animations before redirecting
+                loader.classList.remove('inflate'); // Remove inflate class
+                background.style.backgroundColor = 'transparent'; // Reverse background color
+                background.style.zIndex = '-1'; // Reset z-index to -1 after reverse
+                setTimeout(function() {
+                    window.location.href = nextPageUrl; // Redirect to the next page
+                }, 500); // 0.5 second delay for reverse effect
+            }, 3000); // 5 seconds for loader display
+        };
+
+        function toggleLanguage() {
+            const language = document.getElementById('language').value;
+            const nextButton = document.getElementById('nextButton');
+
+            if (language === 'es') {
+                nextButton.textContent = 'Página Siguiente';
+            } else {
+                nextButton.textContent = 'Next Page';
+            }
+        }
+    </script>
+        
+ 
+    </body>
+</html>
